@@ -40,7 +40,7 @@ var review = {
 					default:Date.now
 				},
 				comments:{
-					type: [String], 
+					type: String, 
 					required: true
 				},
 				rating:{
@@ -60,6 +60,10 @@ var recipe = {
 					required: true,
 					index: 'recipeName',
 					unique:true
+				},
+				description : {
+					type: String, 
+					required: true
 				},
 				preparationTime:{
 					type: Number, 

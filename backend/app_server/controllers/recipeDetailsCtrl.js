@@ -9,7 +9,7 @@
  	httpHelper = require('./httpHelper');
 
 
- 	/**
+ /**
  * Updates the content of a recipe using the request body content
  */
 module.exports.updateRecipe = function(req,res){
@@ -52,6 +52,7 @@ module.exports.updateRecipe = function(req,res){
 var updateRecipeContent = function(req,recipe){
 	  
 		recipe.title = req.body.title;
+		recipe.description = req.body.description;
 		recipe.preparationTime = req.body.preparationTime;
 		recipe.cookingTime = req.body.cookingTime;
 		recipe.category =req.body.category;

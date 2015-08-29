@@ -1,0 +1,4 @@
+- Ensure that the user that updates a recipe owns it.
+-  Add field validation in the controller or server
+-  Display loading message or gif when making rest calls.
+_ review how services are declared

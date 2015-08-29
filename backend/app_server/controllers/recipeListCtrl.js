@@ -82,6 +82,7 @@ module.exports.createRecipe = function(req,res){
 var buildRecipe = function(req){
 	var recipe = {
 		title: req.body.title,
+		description: req.body.description, 
 		preparationTime: req.body.preparationTime,
 		cookingTime: req.body.cookingTime,
 		category: req.body.category,

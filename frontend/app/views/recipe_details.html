@@ -1,0 +1,95 @@
+<div class="container">
+
+<a href="#/home" class="push-left" role="button">&lt;&lt;&lt; back</a>
+   
+<div class="row">
+
+<div class="alert alert-danger" ng-show="vm.page_load_error"> {{vm.page_load_error}} </div>
+
+  <div class="col-xs-12 col-sm-8" ng-hide="vm.page_load_error">
+            
+          <div class="row">
+             <div class="col-sm-12">
+                <h2><strong>{{vm.recipe.title}}</strong>
+                   <small  rating-stars value="vm.recipe.rating"></small>
+                </h2>
+                <hr>
+             </div>
+           </div>
+
+                <div class="row form-group">
+                        <div class="col-sm-4">
+                           <label for="exampleInputEmail1">Category</label>
+                        </div>
+
+                        <div class="col-sm-6">
+                           {{vm.recipe.category}}
+                        </div>
+                </div>
+
+               <div class="row form-group">
+                        <div class="col-sm-4">
+                           <label for="exampleInputEmail1">Preparation time</label>
+                        </div>
+                        <div class="col-sm-6">
+                             {{vm.recipe.preparationTime}} hour/s
+                        </div>
+
+              </div>
+              <div class="row form-group">
+                        <div class="col-sm-4">
+                           <label for="exampleInputEmail1">Cooking time</label>
+                        </div>
+
+                        <div class="col-sm-6">
+                             {{vm.recipe.cookingTime}} hour/s
+                        </div>
+                </div> 
+
+
+                  <div class="row form-group">
+                        <div class="col-sm-4">
+                           <label for="exampleInputEmail1">Ingredients</label>
+                        </div>
+
+                        <div class="col-sm-6">
+                              <label> {{vm.recipe.ingredients}}</label>
+                        </div>
+                    </div>
+                      <div class="row form-group">
+                        <div class="col-sm-4">
+                           <label for="exampleInputEmail1">Preparation method</label>
+                        </div>
+
+                        <div class="col-sm-6">
+                              <label> {{vm.recipe.preparation}}</label>
+                        </div>
+                    </div>
+                <div class="row form-group">
+                      <p><a href="#" class="btn btn-primary push-right" role="button">Add your review</a> </p>
+                  </div>
+
+                    
+        </div> 
+
+         <div class="col-xs-12 col-sm-4" ng-hide="vm.page_load_error">
+          <div class="row">
+             <div class="col-sm-offset-6 col-sm-6">
+                <h3><strong>Top reviews</strong>
+                </h3>
+                <hr>
+           
+             <div ng-repeat="review in vm.recipe.reviews" >
+              <li>
+                  {{ review.comments }}
+                </li>
+             </div>
+
+           </div> 
+         </div>
+      </div>
+
+
+  </div>
+
+</div>

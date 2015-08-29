@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyRecipeApp">
+<head>
+ <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+ <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.css">
+   <link rel="stylesheet" href="css/app.css">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-route.min.js"></script>
+  <script type="text/javascript" src="js/angular-animate.js"></script>
+  <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/angular-file-upload.js"></script>
+  <script type="text/javascript" src="js/angular-cookies.js"></script>
+
+  <!-- Angular application configuration file and controllers-->
+
+ <script type="text/javascript" src="app/app.js"></script>
+ <script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
+ <script type="text/javascript" src="app/controllers/recipeDetailsCtrl.js"></script>
+ <script type="text/javascript" src="app/controllers/recipeCtrl.js"></script>
+ <script type="text/javascript" src="app/controllers/searchCtrl.js"></script>
+ <script type="text/javascript" src="app/services/recipeService.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+  $(".nav a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+});
+</script>
+
+</head>
+
+  <body>
+    
+   <header>
+        <nav class="navbar navbar-default navbar-fix-top main-navbar" role="navigation">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> 
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                </button>
+                  <a class="navbar-brand">My Recipe Book</a>
+            </div>
+          <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/index.html#/">Home</a></li>
+                <li><a href="#/addrecipe">Add recipes</a></li>
+                <li><a href="#/search">Search</a></li>
+                <li><a href="#">Recipe photo album</a></li>
+                <li class="dropdown">
+                      <a href="#" class="dropdown-toggel" data-toggle="dropdown">
+                        Social <b class="caret"></b>
+                      <ul class="dropdown-menu">
+                         <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                      </ul>
+
+                </li> 
+              </ul>
+            </div>
+        </nav>
+</header>
+  <!-- End navigation-->
+    <div id="content">    
+       <ng-view class="view-animate"></ng-view>
+    </div>
+
+
+    <footer>
+         <div class="footer">
+              <div class="container">
+                  <div class="row">
+                      <footer>
+                          <div class="pull-left ft_space">
+                              <address>
+                                <h3>My Recipe Book</h3>
+                                   Daniel  CopyRight @2015
+                              </address>
+                           </div>
+                            <div class="pull-right ft_space">
+                                log image
+                            </div>
+
+                      </footer>   
+                  </div>  
+              </div>  
+
+         </div>
+</footer>
+
+
+  </body>
+</html>

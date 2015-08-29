@@ -1,0 +1,17 @@
+ <a href="#/recipes/{{recipe._id}}" > 
+                <div class="thumbnail" ng-mouseover="sayHello(recipe.title)">
+                  <img src="img/bread.jpeg" alt="...">
+                  
+                  <div class="caption">
+                    <h4>
+                     {{recipe.title}}
+                      <small  rating-stars value="recipe.rating"></small>
+                     </h4>
+                     <h3>
+                      {{recipe.description}}
+                     </h3>
+                     <span class="label label-warning label-facility">{{recipe.category}}</span>
+                  </div>
+                   
+                </div>
+      </a>
