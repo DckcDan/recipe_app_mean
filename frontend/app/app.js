@@ -1,13 +1,12 @@
-
 /**
  * Application module declaration
  */
 angular.module("MyRecipeApp", 
 	[ 
-		"ngRoute", 
-		"angularFileUpload",
-		"ngCookies",
-	    "ui.bootstrap"
+		'ngRoute', 
+		'angularFileUpload',
+		'ngCookies',
+	    'ui.bootstrap'
 	 ]);
 
 /**
@@ -16,29 +15,29 @@ angular.module("MyRecipeApp",
 angular.module("MyRecipeApp").config(function ($routeProvider) {
     $routeProvider
      	.when("/home", { 
-     		controller: "HomeController",
+     		controller: "homeController",
      		controllerAs: "vm", 
      		templateUrl: "app/views/home.html" 
      	})
      	.when("/recipes/:recipeId",{
-     		controller:"RecipeDetailsController",
+     		controller:"recipeDetailsController",
 			controllerAs: "vm", 
      		templateUrl: "app/views/recipe_details.html"  
      	})
 		.when("/addrecipe", 
-			{ controller: "RecipeController", 
+			{ controller: "recipeController", 
 			  controllerAs: "vm", 
 		   	  templateUrl: "app/views/add_recipe.html" 
 		})
 		.when("/search", 
-			{ controller: "SearchController", 
+			{ controller: "searchController", 
 			  controllerAs: "vm", 
 		   	  templateUrl: "app/views/search.html" 
 		})
 	    .when("/", { redirectTo: "/home" })
-        //.when("/404_page", { controller: "Controller404", templateUrl: "app/partials/404_page_partial.html" })
-         .otherwise( { redirectTo: "/404_page" });
+        .otherwise( { redirectTo: "/home" });
 });
+
 
 /**
  * Application directives definition
@@ -66,7 +65,7 @@ angular.module("MyRecipeApp").directive("ratingStars",ratingStars);
 
 
 /**
- * Recipe directives. This directives is used in several pages. Reusability.
+ * Recipe directives. This directives is used in several pages to enforce reusability.
  */
 
 var recipe = function(){
@@ -95,4 +94,17 @@ var recipe = function(){
 
 angular.module("MyRecipeApp").directive("recipe",recipe);
 
+/**
+ * Recipe directives. This directives is used in several pages to enforce reusability.
+ */
+
+var review = function(){
+	return{
+		restrict : "E",
+		templateUrl: "/app/views/directives/review.html"
+};
+
+};
+
+angular.module("MyRecipeApp").directive("review",review);
 

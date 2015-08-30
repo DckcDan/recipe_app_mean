@@ -2,7 +2,7 @@
 
 
 
-var RecipeController = function($scope,$routeParams,$location,recipeProvider){
+var recipeController = function($scope,$routeParams,$location,recipeProvider){
 
 	var vm = this;
     vm.newRecipe = {};
@@ -40,6 +40,6 @@ var RecipeController = function($scope,$routeParams,$location,recipeProvider){
 };
 
 
- angular.module("MyRecipeApp").controller("RecipeController", RecipeController);
+ angular.module("MyRecipeApp").controller("recipeController", recipeController);
 
  })();

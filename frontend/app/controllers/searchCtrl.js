@@ -1,7 +1,7 @@
 (function () {
 
 //TODO This looks like to HOME controller - REFACTOR REQUIRED
-var SearchController = function(recipeProvider){
+var searchController = function(recipeProvider){
 	var vm = this;
 	vm.message=   "Searching for recipes";
 
@@ -21,7 +21,7 @@ var SearchController = function(recipeProvider){
 
 //only use $scope when you actually need it, use the ViewModel controllerAd approach where you can.
 
- angular.module("MyRecipeApp").controller("SearchController", SearchController);
+ angular.module("MyRecipeApp").controller("searchController", searchController);
 
 
 })();

@@ -2,9 +2,11 @@
 
 <a href="#/home" class="push-left" role="button">&lt;&lt;&lt; back</a>
    
-<div class="row">
-
 <div class="alert alert-danger" ng-show="vm.page_load_error"> {{vm.page_load_error}} </div>
+
+
+
+<div class="row">
 
   <div class="col-xs-12 col-sm-8" ng-hide="vm.page_load_error">
             
@@ -12,11 +14,12 @@
              <div class="col-sm-12">
                 <h2><strong>{{vm.recipe.title}}</strong>
                    <small  rating-stars value="vm.recipe.rating"></small>
-                </h2>
+                   <a ng-click="vm.popupReviewForm()" class="btn btn-warning pull-right" role="button">Add your review</a>  
+                </h2>  
                 <hr>
              </div>
            </div>
-
+         
                 <div class="row form-group">
                         <div class="col-sm-4">
                            <label for="exampleInputEmail1">Category</label>
@@ -65,9 +68,7 @@
                               <label> {{vm.recipe.preparation}}</label>
                         </div>
                     </div>
-                <div class="row form-group">
-                      <p><a href="#" class="btn btn-primary push-right" role="button">Add your review</a> </p>
-                  </div>
+               
 
                     
         </div> 
@@ -90,6 +91,27 @@
       </div>
 
 
+
   </div>
+
+
+  <div class="row bpad pad">
+      <div class="col-xs-12 col-sm-12" ng-hide="vm.page_load_error">
+          <div class="row">
+             <div class="col-sm-12">
+                <h3><strong>Reviews</strong>
+                </h3>  
+                <hr>
+             </div>
+           </div>
+        <div class="row lpad">
+
+
+            <review ng-repeat="review in vm.recipe.reviews"/>
+
+          </div>
+      </div>
+  </div>
+
 
 </div>

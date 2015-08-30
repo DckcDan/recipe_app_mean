@@ -1,0 +1,53 @@
+<!-- Modal -->
+
+  <form id="addReview" name="addReview" role="form" class="form-horizontal" ng-submit="vm.onSubmit()">
+ 
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.modal.cancel()">x</button>
+        <h4 class="modal-title">Add your review for {{vm.recipeData.recipeName}}</h4>
+      </div>
+      <div class="modal-body">
+         <div class="alert alert-danger" ng-show="vm.add_review_error"> {{vm.add_review_error}} </div>
+              
+
+        <div class="form-group">
+            <label class="col-xs-2 col-sm-2">Your rating</label>
+            <div class="col-xs-10 col-sm-10">
+              <select class="form-control" id="rating" ng-init="vm.formData.rating=5" ng-model="vm.formData.rating">
+                <option>5</option>
+                <option>4</option>
+                <option>3</option>
+                <option>2</option>
+                <option>1</option>
+             </select>
+              <h2>
+                   <small  rating-stars value="vm.formData.rating"></small>
+              </h2>
+            </div>
+
+        </div>
+         <div class="form-group">
+            <label class="col-xs-2 col-sm-2"> Title</label>
+            <div class="col-xs-10 col-sm-10">
+              <input id="title" name="title" class="form-control"  ng-model="vm.formData.title">
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-xs-2 col-sm-2">Comments</label>
+            <div class="col-xs-10 col-sm-10">
+              <textarea id="comments" name="comments" class="form-control" rows="5"  ng-model="vm.formData.comments"> </textarea>
+            </div>
+         </div>
+        </div>
+      
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.modal.cancel()">Cancel</button>
+        <button type="submit" class="btn btn-success">Submit review</button>
+      </div>
+    </div>
+
+  </form>

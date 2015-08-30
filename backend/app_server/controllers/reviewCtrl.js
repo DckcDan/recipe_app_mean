@@ -98,7 +98,7 @@ var buildReviewResponse = function(recipe,review){
 module.exports.createReview = function(req,res){
 	var recipeId = req.params.recipeId;
 	//Note if the value passed to findById is undefined, it will return the first entry.
-if(recipeId){
+ if(recipeId){
 	RecipeDAO
 			.findById(recipeId)
 			.select("rating reviews")
@@ -155,8 +155,8 @@ var buildReview = function(req){
 	var review = {
 			createdBy: req.body.userId,
 			comments: req.body.comments,
-			rating: req.body.rating
-
+			rating: req.body.rating,
+			title: req.body.title
 	};
 
 	return review;

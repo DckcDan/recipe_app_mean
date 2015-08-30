@@ -74,7 +74,7 @@
            </div>  
            <div class="row">
 
-                <recipe class="col-sm-6 col-md-3 simple-recipe" ng-repeat="recipe in vm.recipeList"/>
+                <recipe class="col-sm-6 col-md-3 simple-recipe" ng-repeat="recipe in vm.recipeList | orderBy : '-rating'"/>
                
               </div>
          

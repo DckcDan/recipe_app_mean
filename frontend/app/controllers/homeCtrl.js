@@ -1,7 +1,7 @@
 (function () {
 
 
-var HomeController = function(recipeProvider){
+var homeController = function(recipeProvider){
 	var vm = this;
 	vm.message="hello daniel";
 
@@ -13,7 +13,7 @@ var HomeController = function(recipeProvider){
 		               			vm.recipeList = data;
 					  },
 					  function(error) {
-					    vm.page_load_error = "Unexpected error loading recipes: " + status;
+					    vm.page_load_error = "Unexpected error loading recipes: " + error.status;
 					  }
 				);
 
@@ -22,7 +22,7 @@ var HomeController = function(recipeProvider){
 
 //only use $scope when you actually need it, use the ViewModel controllerAd approach where you can.
 
- angular.module("MyRecipeApp").controller("HomeController", HomeController);
+ angular.module("MyRecipeApp").controller("homeController", homeController);
 
 
 })();

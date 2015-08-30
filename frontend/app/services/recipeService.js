@@ -7,7 +7,6 @@
          * Returns a complete list with all the recipes.
          */
     	var recipeList = function(){
-
             var deferred = $q.defer();
             //var url= baseUrl+"/api/v1/recipes/"
               $http.get("/api/v1/recipes/")
@@ -23,11 +22,10 @@
         };
 
         /**
-         * It looks up a recipe by its id
+         * It looks up a recipe by its id.
          */
         var lookUpRecipeById = function(recipeId){            
-          
-            var deferred = $q.defer();
+             var deferred = $q.defer();
 
             $http.get("/api/v1/recipes/"+recipeId)
                     .success(deferred.resolve)
@@ -39,11 +37,9 @@
       };
 
         /**
-         * Adds a new recipe to the datastore
+         * Adds a new recipe to the datastore.
          */
         var addNewRecipe = function(newRecipe){
-
-
             var deferred = $q.defer();
 
             $http.post("/api/v1/recipes",newRecipe)
@@ -51,12 +47,28 @@
                     .error(deferred.reject);
 
             return deferred.promise;
-        };        
+        };   
+
+
+    /**
+     * Adds a review to an existing receipt.
+     */
+     var addReview = function(recipeId,review){
+        var deferred = $q.defer();
+
+        $http.post("/api/v1/recipes/"+recipeId+"/reviews",review) 
+                    .success(deferred.resolve)
+                    .error(deferred.reject);
+
+         return deferred.promise;    
+     };
+
 
         return{
             getRecipeList : recipeList,
             lookUpRecipeById : lookUpRecipeById,
-            addNewRecipe : addNewRecipe
+            addNewRecipe : addNewRecipe,
+            addReview : addReview
         }
 
 

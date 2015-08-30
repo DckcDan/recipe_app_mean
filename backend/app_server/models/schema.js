@@ -39,6 +39,10 @@ var review = {
 					type: Date, required: true,
 					default:Date.now
 				},
+				title:{
+					type: String, 
+					required: true
+				},
 				comments:{
 					type: String, 
 					required: true

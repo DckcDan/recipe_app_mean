@@ -5,18 +5,21 @@
 
  <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic' rel='stylesheet' type='text/css'>
  <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.css">
-   <link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/app.css">
   <script type="text/javascript" src="js/angular.min.js"></script>
   <script type="text/javascript" src="js/angular-route.min.js"></script>
   <script type="text/javascript" src="js/angular-animate.js"></script>
-  <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
   <script type="text/javascript" src="js/angular-file-upload.js"></script>
   <script type="text/javascript" src="js/angular-cookies.js"></script>
+
+<script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-0.13.3.min.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
+  
 
   <!-- Angular application configuration file and controllers-->
 
@@ -25,6 +28,7 @@
  <script type="text/javascript" src="app/controllers/recipeDetailsCtrl.js"></script>
  <script type="text/javascript" src="app/controllers/recipeCtrl.js"></script>
  <script type="text/javascript" src="app/controllers/searchCtrl.js"></script>
+ <script type="text/javascript" src="app/controllers/reviewModalCtrl.js"></script>
  <script type="text/javascript" src="app/services/recipeService.js"></script>
 
 
@@ -72,7 +76,8 @@ $(document).ready(function(){
             </div>
         </nav>
 </header>
-  <!-- End navigation-->
+
+
     <div id="content">    
        <ng-view class="view-animate"></ng-view>
     </div>
