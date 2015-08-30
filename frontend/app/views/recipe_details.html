@@ -14,7 +14,8 @@
              <div class="col-sm-12">
                 <h2><strong>{{vm.recipe.title}}</strong>
                    <small  rating-stars value="vm.recipe.rating"></small>
-                   <a ng-click="vm.popupReviewForm()" class="btn btn-warning pull-right" role="button">Add your review</a>  
+                    <a href="#/editrecipe/{{vm.recipe._id}}" class="btn btn-success pull-right " role="button">Update your recipe</a> 
+                   <button ng-click="vm.popupReviewForm()" class="btn btn-warning pull-right" role="button">Add your review</button>  
                 </h2>  
                 <hr>
              </div>

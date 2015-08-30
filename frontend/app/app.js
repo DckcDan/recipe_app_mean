@@ -29,6 +29,11 @@ angular.module("MyRecipeApp").config(function ($routeProvider) {
 			  controllerAs: "vm", 
 		   	  templateUrl: "app/views/add_recipe.html" 
 		})
+		.when("/editrecipe/:recipeId", 
+			{ controller: "recipeDetailsController", 
+			  controllerAs: "vm", 
+		   	  templateUrl: "app/views/edit_recipe.html" 
+		})
 		.when("/search", 
 			{ controller: "searchController", 
 			  controllerAs: "vm", 
@@ -91,8 +96,21 @@ var recipe = function(){
 	};
 
 };
+//represent a recipe form for adding or editing a recipe
+var recipeForm = function(){
 
+	return{
+		restrict : "E",
+		scope : {
+			recipe : "=value"
+		},
+		templateUrl: "/app/views/directives/recipe-form.html"
+	};
+
+};
 angular.module("MyRecipeApp").directive("recipe",recipe);
+angular.module("MyRecipeApp").directive("recipeForm",recipeForm);
+
 
 /**
  * Recipe directives. This directives is used in several pages to enforce reusability.

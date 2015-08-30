@@ -2,22 +2,45 @@
 
 
 
-var recipeDetailsController = function($scope,$routeParams,$modal,recipeProvider){
+var recipeDetailsController = function($scope,$routeParams,$location,$modal,recipeProvider){
 
 	var vm = this;
 	var recipeId = $routeParams.recipeId;
+
 
 	 recipeProvider.lookUpRecipeById(recipeId)
                     .then(
                         function(data,status,headers,conf){
                                vm.done_loading = true;
                                vm.recipe = data;
+                               //this is for the edit mode
+                               vm.selectedRecipe = data;
                          },
                         function (payload) {
-                            vm.page_load_error = "Sorry Recipe not found";
+                              vm.page_load_error = "Sorry Recipe not found";
                          }
 
                         );
+
+
+
+  vm.editRecipe = function(updatedRecipe){
+
+    //selectedRecipe
+
+      recipeProvider.updateRecipe(updatedRecipe._id,updatedRecipe)
+        .then(
+          function(recipe){
+                       vm.edit_recipe_error = '';
+                       $location.path("/recipes/" + recipe._id);
+            },
+              function (recipe, status, headers, conf) {
+                         console.log("Error editing recipe name "+recipe.title+".Error "+status)
+                     vm.aedit_recipe_error = "Uppss an error has happened, please try again later!!!";
+                  });
+    
+  }
+
 
   /**
    * Method to open the review modal screen

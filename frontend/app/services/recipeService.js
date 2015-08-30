@@ -50,6 +50,19 @@
         };   
 
 
+          /**
+         * Updates an exiting recipe in the datastore.
+         */
+        var updateRecipe = function(recipeId,updatedRecipe){
+            var deferred = $q.defer();
+
+            $http.put("/api/v1/recipes/"+recipeId,updatedRecipe)
+                    .success(deferred.resolve)
+                    .error(deferred.reject);
+
+            return deferred.promise;
+        }; 
+
     /**
      * Adds a review to an existing receipt.
      */
@@ -68,7 +81,8 @@
             getRecipeList : recipeList,
             lookUpRecipeById : lookUpRecipeById,
             addNewRecipe : addNewRecipe,
-            addReview : addReview
+            addReview : addReview,
+            updateRecipe : updateRecipe
         }
 
 
