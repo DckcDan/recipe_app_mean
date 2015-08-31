@@ -17,27 +17,27 @@ angular.module("MyRecipeApp").config(function ($routeProvider) {
      	.when("/home", { 
      		controller: "homeController",
      		controllerAs: "vm", 
-     		templateUrl: "app/views/home.html" 
+     		templateUrl: "app/home/views/home.html" 
      	})
      	.when("/recipes/:recipeId",{
      		controller:"recipeDetailsController",
 			controllerAs: "vm", 
-     		templateUrl: "app/views/recipe_details.html"  
+     		templateUrl: "app/recipe/views/recipe_details.html"  
      	})
 		.when("/addrecipe", 
 			{ controller: "recipeController", 
 			  controllerAs: "vm", 
-		   	  templateUrl: "app/views/add_recipe.html" 
+		   	  templateUrl: "app/recipe/views/add_recipe.html" 
 		})
 		.when("/editrecipe/:recipeId", 
 			{ controller: "recipeDetailsController", 
 			  controllerAs: "vm", 
-		   	  templateUrl: "app/views/edit_recipe.html" 
+		   	  templateUrl: "app/recipe/views/edit_recipe.html" 
 		})
 		.when("/search", 
 			{ controller: "searchController", 
 			  controllerAs: "vm", 
-		   	  templateUrl: "app/views/search.html" 
+		   	  templateUrl: "app/recipe/views/search.html" 
 		})
 	    .when("/", { redirectTo: "/home" })
         .otherwise( { redirectTo: "/home" });
@@ -60,7 +60,7 @@ var ratingStars = function(){
 		scope : {
 			thisRating : "=value"
 		},
-		templateUrl: "/app/views/directives/rating_stars.html"
+		templateUrl: "/app/recipe/directives/rating_stars.html"
 	};
 
 
@@ -91,7 +91,7 @@ var recipe = function(){
 		linker: linker,
 		controller: controller,
 		restrict : "E",
-		templateUrl: "/app/views/directives/recipe.html"
+		templateUrl: "/app/recipe/directives/recipe.html"
 
 	};
 
@@ -104,7 +104,7 @@ var recipeForm = function(){
 		scope : {
 			recipe : "=value"
 		},
-		templateUrl: "/app/views/directives/recipe-form.html"
+		templateUrl: "/app/recipe/directives/recipe-form.html"
 	};
 
 };
@@ -119,7 +119,7 @@ angular.module("MyRecipeApp").directive("recipeForm",recipeForm);
 var review = function(){
 	return{
 		restrict : "E",
-		templateUrl: "/app/views/directives/review.html"
+		templateUrl: "/app/recipe/directives/review.html"
 };
 
 };

@@ -48,7 +48,7 @@ var recipeDetailsController = function($scope,$routeParams,$location,$modal,reci
    vm.popupReviewForm = function(){
 
                 var modelInstance = $modal.open({
-                       templateUrl : 'app/views/modals/review_modal.html',
+                       templateUrl : 'app/recipe/modals/review_modal.html',
                        controller : 'reviewModalController as vm', 
                        /*note that modal does not support controllerAs so the 
                          above is the way to define it*/
