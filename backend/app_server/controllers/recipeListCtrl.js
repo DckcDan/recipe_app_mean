@@ -88,7 +88,7 @@ var buildRecipe = function(req){
 		category: req.body.category,
 		ingredients: req.body.ingredients,
 		preparation: req.body.preparation,
-		createdBy: req.body.userId,
+		createdBy: req.body.userId
 	};
 
 	return recipe;
@@ -114,7 +114,7 @@ module.exports.deleteRecipe = function(req,res){
 		httpHelper.sendJsonResponse(res,400,{"status":"No recipeId provided"});
 	}
 
-}
+};
 
 
 

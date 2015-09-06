@@ -41,7 +41,7 @@ router.post('/recipes/:recipeId/reviews', reviewCtrl.createReview);
 /**
  * user dispatchers handlers.
  */
-//router.get('/users/:userName',userCtrl.get);
+router.post('/users',userCtrl.createUser);
 
 
 /**

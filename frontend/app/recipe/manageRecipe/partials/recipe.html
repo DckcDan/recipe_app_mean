@@ -1,0 +1,30 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 ng-if="!vm.currentRecipe"><strong>Add your new recipe</strong></h2>
+            <h2 ng-if="vm.currentRecipe"><strong>{{vm.currentRecipe.title}}</strong></h2>
+            <hr>
+        </div>
+    </div>
+    <div class="alert alert-danger" ng-show="vm.recipe_form_error"> {{vm.recipe_form_error}} </div>
+
+    <form name="vm.recipeForm">
+
+        <recipe-form value="vm.editedRecipe"></recipe-form>
+
+        <div class="row form-group">
+            <div class="col-sm-4 col-sm-offset-8">
+                <a href="#/" ng-click="vm.cancelEdit()" class="btn btn-warning" role="button">Cancel</a>
+                <span ng-if="!vm.currentRecipe">
+                           <button ng-click="vm.createRecipe()" type="button" 
+                           ng-disabled="!vm.recipeForm.$valid"  class="btn btn-success">Add new recipe</button>
+                        </span>
+                <span ng-if="vm.currentRecipe">
+                           <button ng-click="vm.editRecipe()" type="button" 
+                           ng-disabled="!vm.recipeForm.$valid"  class="btn btn-success">Update recipe</button>
+                        </span>
+            </div>
+        </div>
+    </form>
+</div>

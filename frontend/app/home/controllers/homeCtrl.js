@@ -4,7 +4,7 @@
 var homeController = function(recipeProvider){
 	var vm = this;
 	vm.message="hello daniel";
-
+	vm.recipeList = {};
 
 	recipeProvider.getRecipeList()
 				.then(

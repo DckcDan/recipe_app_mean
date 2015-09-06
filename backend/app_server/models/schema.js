@@ -2,14 +2,16 @@
 /**
  * Module dependencies.
  */
+
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+	Schema = mongoose.Schema,
+	crypto = require('crypto');
+
 /**
  * User schema.
  */
 var user = {
 				fullname: String,
-				login: String,
 				email: {
 					type: String, 
 					unique:true
@@ -17,13 +19,29 @@ var user = {
 				createdOn: {
 					type: Date, 
 					required: true,
-					default: Date.now}
-					,
+					default: Date.now
+				},
+				password: {
+					type : String,
+					required: true,
+				},
 				modifiedOn: Date,
-				lastLogin: Date
-				};
+				lastLogin: Date,
+				salt : String
+			};
 
 var userSchema = new Schema(user);
+
+//Encrypts a user password using HASH and salt
+userSchema.methods.setPassword = function(password){
+	this.salt = crypto.randomBytes(16).toString('hex');
+	this.password = crypto.pbkb2Sync(password,this.salt,1000,64).toString('hex');
+};
+
+userSchema.methods.validatePassword = function(password){
+	var hash = crypto.pbkb2Sync(password,this.salt,1000,64).toString('hex');
+	return this.password == hash;
+};
 
 
 /**

@@ -1,47 +1,15 @@
+'use strict';
 /**
  * Application module declaration
  */
-angular.module("MyRecipeApp", 
-	[ 
-		'ngRoute', 
+angular.module("MyRecipeApp", [
+		'ui.router',
 		'angularFileUpload',
-		'ngCookies',
+		'ngMessages',
 	    'ui.bootstrap'
 	 ]);
 
-/**
- * Application routing definition
- */
-angular.module("MyRecipeApp").config(function ($routeProvider) {
-    $routeProvider
-     	.when("/home", { 
-     		controller: "homeController",
-     		controllerAs: "vm", 
-     		templateUrl: "app/home/views/home.html" 
-     	})
-     	.when("/recipes/:recipeId",{
-     		controller:"recipeDetailsController",
-			controllerAs: "vm", 
-     		templateUrl: "app/recipe/views/recipe_details.html"  
-     	})
-		.when("/addrecipe", 
-			{ controller: "recipeController", 
-			  controllerAs: "vm", 
-		   	  templateUrl: "app/recipe/views/add_recipe.html" 
-		})
-		.when("/editrecipe/:recipeId", 
-			{ controller: "recipeDetailsController", 
-			  controllerAs: "vm", 
-		   	  templateUrl: "app/recipe/views/edit_recipe.html" 
-		})
-		.when("/search", 
-			{ controller: "searchController", 
-			  controllerAs: "vm", 
-		   	  templateUrl: "app/recipe/views/search.html" 
-		})
-	    .when("/", { redirectTo: "/home" })
-        .otherwise( { redirectTo: "/home" });
-});
+
 
 
 /**
@@ -51,78 +19,77 @@ angular.module("MyRecipeApp").config(function ($routeProvider) {
 //to a lowercase  and prefixed by a dash//
 //rating-stars snake  case
 
-var ratingStars = function(){
+var ratingStars = function () {
 
-	return{
-		//link: it allows to manipulate the dom via a function
-		restrict : "A",
-		replace : false,
-		scope : {
-			thisRating : "=value"
-		},
-		templateUrl: "/app/recipe/directives/rating_stars.html"
-	};
+    return {
+        //link: it allows to manipulate the dom via a function
+        restrict: "A",
+        replace: false,
+        scope: {
+            thisRating: "=value"
+        },
+        templateUrl: "/app/recipe/common/directives/rating_stars.html"
+    };
 
 
 
 };
-angular.module("MyRecipeApp").directive("ratingStars",ratingStars);
+angular.module("MyRecipeApp").directive("ratingStars", ratingStars);
 
 
 /**
  * Recipe directives. This directives is used in several pages to enforce reusability.
  */
 
-var recipe = function(){
-	//function to manipulate DOM
-	var linker = function(scope,element,attrs){
-			console.log(element);
-			//attach functions for instance onclick to the element
-	};
-	//function to deal with events in the directive. This can be in the page controller
-	//but for testability is better here
-	var controller = function($scope){
-			$scope.sayHello = function(recipeId){
-					console.log("Helllo "+recipeId);
-			}
-	};
+var recipe = function () {
+    //function to manipulate DOM
+    var linker = function (scope, element, attrs) {
+        console.log(element);
+        //attach functions for instance onclick to the element
+    };
+    //function to deal with events in the directive. This can be in the page controller
+    //but for testability is better here
+    var controller = function ($scope) {
+        $scope.sayHello = function (recipeId) {
+            console.log("Helllo " + recipeId);
+        }
+    };
 
-	return{
-		linker: linker,
-		controller: controller,
-		restrict : "E",
-		templateUrl: "/app/recipe/directives/recipe.html"
+    return {
+        linker: linker,
+        controller: controller,
+        restrict: "E",
+        templateUrl: "/app/recipe/common/directives/recipe.html"
 
-	};
+    };
 
 };
 //represent a recipe form for adding or editing a recipe
-var recipeForm = function(){
+var recipeForm = function () {
 
-	return{
-		restrict : "E",
-		scope : {
-			recipe : "=value"
-		},
-		templateUrl: "/app/recipe/directives/recipe-form.html"
-	};
+    return {
+        restrict: "E",
+        scope: {
+            recipe: "=value"
+        },
+        templateUrl: "/app/recipe/common/directives/recipe_form.html"
+    };
 
 };
-angular.module("MyRecipeApp").directive("recipe",recipe);
-angular.module("MyRecipeApp").directive("recipeForm",recipeForm);
+angular.module("MyRecipeApp").directive("recipe", recipe);
+angular.module("MyRecipeApp").directive("recipeForm", recipeForm);
 
 
 /**
  * Recipe directives. This directives is used in several pages to enforce reusability.
  */
 
-var review = function(){
-	return{
-		restrict : "E",
-		templateUrl: "/app/recipe/directives/review.html"
-};
+var review = function () {
+    return {
+        restrict: "E",
+        templateUrl: "/app/recipe/recipeDetails/directives/review.html"
+    };
 
 };
 
-angular.module("MyRecipeApp").directive("review",review);
-
+angular.module("MyRecipeApp").directive("review", review);

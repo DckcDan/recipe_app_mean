@@ -12,10 +12,11 @@
             
           <div class="row">
              <div class="col-sm-12">
-                <h2><strong>{{vm.recipe.title}}</strong>
-                   <small  rating-stars value="vm.recipe.rating"></small>
-                    <a href="#/editrecipe/{{vm.recipe._id}}" class="btn btn-success pull-right " role="button">Update your recipe</a> 
+                <h2><strong>{{vm.currentRecipe.title}}</strong>
+                   <small  rating-stars value="vm.currentRecipe.rating"></small>
+                    <a href="#/recipes/{{vm.currentRecipe._id}}/edit" class="btn btn-success pull-right " role="button">Update your recipe</a> 
                    <button ng-click="vm.popupReviewForm()" class="btn btn-warning pull-right" role="button">Add your review</button>  
+                    <button ng-click="vm.deleteRecipe(vm.currentRecipe._id)" class="btn btn-error pull-right" role="button">Delete recipe</button>  
                 </h2>  
                 <hr>
              </div>
@@ -27,7 +28,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                           {{vm.recipe.category}}
+                           {{vm.currentRecipe.category}}
                         </div>
                 </div>
 
@@ -36,7 +37,7 @@
                            <label for="exampleInputEmail1">Preparation time</label>
                         </div>
                         <div class="col-sm-6">
-                             {{vm.recipe.preparationTime}} hour/s
+                             {{vm.currentRecipe.preparationTime}} hour/s
                         </div>
 
               </div>
@@ -46,7 +47,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                             {{vm.recipe.cookingTime}} hour/s
+                             {{vm.currentRecipe.cookingTime}} hour/s
                         </div>
                 </div> 
 
@@ -57,7 +58,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                              <label> {{vm.recipe.ingredients}}</label>
+                              <label> {{vm.currentRecipe.ingredients}}</label>
                         </div>
                     </div>
                       <div class="row form-group">
@@ -66,7 +67,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                              <label> {{vm.recipe.preparation}}</label>
+                              <label> {{vm.currentRecipe.preparation}}</label>
                         </div>
                     </div>
                
@@ -81,7 +82,7 @@
                 </h3>
                 <hr>
            
-             <div ng-repeat="review in vm.recipe.reviews" >
+             <div ng-repeat="review in vm.currentRecipe.reviews" >
               <li>
                   {{ review.comments }}
                 </li>
@@ -108,7 +109,7 @@
         <div class="row lpad">
 
 
-            <review ng-repeat="review in vm.recipe.reviews"/>
+            <review ng-repeat="review in vm.currentRecipe.reviews"/>
 
           </div>
       </div>

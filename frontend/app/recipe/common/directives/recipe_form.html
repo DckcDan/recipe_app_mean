@@ -1,11 +1,18 @@
- <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Title</label>
-                        </div>
+ <div class="row form-group" >
+             <div class="col-sm-4">
+                   <label for="exampleInputEmail1">Title</label>
+             </div>
 
-                        <div class="col-sm-6">
-                             <input type="text" class="form-control"  maxlength="20" placeholder="Name" ng-model="recipe.title">
-                        </div>
+              <div class="col-sm-6">
+                             <input type="text" class="form-control"  maxlength="20" placeholder="Name" id="title" name="title" ng-model="recipe.title" ng-required="true">
+                             <div class="alert alert-warning" ng-messages="vm.recipeForm.title.$error" ng-if="vm.showMessages('title')">
+                                <div ng-message="required">
+                                  <small>Title is required!</small>
+                                </div>    
+                             </div> 
+
+             </div>
+
                </div>
                   <div class="row form-group">
                         <div class="col-sm-4">

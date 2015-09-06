@@ -50,9 +50,9 @@
         };   
 
 
-          /**
-         * Updates an exiting recipe in the datastore.
-         */
+    /**
+     * Updates an exiting recipe in the datastore.
+     */
         var updateRecipe = function(recipeId,updatedRecipe){
             var deferred = $q.defer();
 
@@ -63,6 +63,20 @@
             return deferred.promise;
         }; 
 
+
+    /**
+     * Deletes an exiting recipe in the datastore.
+     */
+        var deleteRecipe = function(recipeId){
+            var deferred = $q.defer();
+
+            $http.delete("/api/v1/recipes/"+recipeId)
+                    .success(deferred.resolve)
+                    .error(deferred.reject);
+
+            return deferred.promise;
+
+        }
     /**
      * Adds a review to an existing receipt.
      */
@@ -82,7 +96,8 @@
             lookUpRecipeById : lookUpRecipeById,
             addNewRecipe : addNewRecipe,
             addReview : addReview,
-            updateRecipe : updateRecipe
+            updateRecipe : updateRecipe,
+            deleteRecipe : deleteRecipe
         }
 
 

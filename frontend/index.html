@@ -1,110 +1,117 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MyRecipeApp">
+
 <head>
- <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
- <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic' rel='stylesheet' type='text/css'>
- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-theme.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/angular-route.min.js"></script>
-  <script type="text/javascript" src="js/angular-animate.js"></script>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <!-- Using the angular ui-router as opposed of the angular router as it provides better features.-->
+    <script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="js/angular-animate.js"></script>
+    <script type="text/javascript" src="js/angular-messages.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-  <script type="text/javascript" src="js/angular-file-upload.js"></script>
-  <script type="text/javascript" src="js/angular-cookies.js"></script>
+    <script type="text/javascript" src="js/angular-file-upload.js"></script>
+    <script type="text/javascript" src="js/angular-cookies.js"></script>
 
-<script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-0.13.3.min.js"></script>
-<script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
-  
-
-  <!-- Angular application configuration file and controllers-->
-
- <script type="text/javascript" src="app/app.js"></script>
- <script type="text/javascript" src="app/home/controllers/homeCtrl.js"></script>
- <script type="text/javascript" src="app/recipe/controllers/recipeDetailsCtrl.js"></script>
- <script type="text/javascript" src="app/recipe/controllers/recipeCtrl.js"></script>
- <script type="text/javascript" src="app/recipe/controllers/searchCtrl.js"></script>
- <script type="text/javascript" src="app/recipe/controllers/reviewModalCtrl.js"></script>
- <script type="text/javascript" src="app/common/services/recipeService.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-0.13.3.min.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
 
 
+    <!-- Angular application configuration file and controllers-->
 
-<script>
-$(document).ready(function(){
-  $(".nav a").on("click", function(){
-   $(".nav").find(".active").removeClass("active");
-   $(this).parent().addClass("active");
-});
-});
-</script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/app.config.js"></script>
+    <script type="text/javascript" src="app/home/controllers/homeCtrl.js"></script>
+    <script type="text/javascript" src="app/user/register/controllers/registerCtrl.js"></script>
+    <script type="text/javascript" src="app/recipe/recipeDetails/controllers/recipeDetailsCtrl.js"></script>
+    <script type="text/javascript" src="app/recipe/recipeDetails/controllers/reviewModalCtrl.js"></script>
+    <script type="text/javascript" src="app/recipe/manageRecipe/controllers/recipeCtrl.js"></script>
+    <script type="text/javascript" src="app/recipe/manageRecipe/controllers/searchCtrl.js"></script>
+    <script type="text/javascript" src="app/recipe/common/services/recipeService.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".nav a").on("click", function () {
+                $(".nav").find(".active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+        });
+    </script>
 
 </head>
 
-  <body>
-    
-   <header>
+<body>
+
+    <header>
         <nav class="navbar navbar-default navbar-fix-top main-navbar" role="navigation">
-              <div class="navbar-header">
+            <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span> 
-                   <span class="icon-bar"></span>
-                   <span class="icon-bar"></span>
-                   <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                  <a class="navbar-brand">My Recipe Book</a>
+                <a class="navbar-brand">My Recipe Book</a>
             </div>
-          <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="/index.html#/">Home</a></li>
-                <li><a href="#/addrecipe">Add recipes</a></li>
-                <li><a href="#/search">Search</a></li>
-                <li><a href="#">Recipe photo album</a></li>
-                <li class="dropdown">
-                      <a href="#" class="dropdown-toggel" data-toggle="dropdown">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a ui-sref="home">Home</a></li>
+                    <li><a ui-sref="addRecipe">Add recipes</a></li>
+                    <li><a ui-sref="search">Search</a></li>
+                    <li><a ui-sref="#">Recipe photo album</a></li>
+                    <li><a ui-sref="register">Sign in</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggel" data-toggle="dropdown">
                         Social <b class="caret"></b>
                       <ul class="dropdown-menu">
                          <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                      </ul>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
 
-                </li> 
-              </ul>
+                </li>
+                </ul>
             </div>
         </nav>
-</header>
+    </header>
 
 
-    <div id="content">    
-       <ng-view class="view-animate"></ng-view>
+    <div id="content">
+        <ui-view></ui-view>
     </div>
 
 
     <footer>
-         <div class="footer">
-              <div class="container">
-                  <div class="row">
-                      <footer>
-                          <div class="pull-left ft_space">
-                              <address>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <footer>
+                        <div class="pull-left ft_space">
+                            <address>
                                 <h3>My Recipe Book</h3>
                                    Daniel  CopyRight @2015
                               </address>
-                           </div>
-                            <div class="pull-right ft_space">
-                                log image
-                            </div>
+                        </div>
+                        <div class="pull-right ft_space">
+                            log image
+                        </div>
 
-                      </footer>   
-                  </div>  
-              </div>  
+                    </footer>
+                </div>
+            </div>
 
-         </div>
-</footer>
+        </div>
+    </footer>
 
 
-  </body>
+</body>
+
 </html>

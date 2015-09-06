@@ -5,7 +5,7 @@ Frameworks used:
 Mongodb, Nodejs, Expressjs, Angularjs
 ,Bootstrap UI framework
 
-
+App organize by feature then by type
 Express.js MVC architecture:
 
 Separation of concerns
@@ -27,3 +27,9 @@ Run application:
  
  1 - Start up the mongo server by running mongod
  2 - Run the node js server by running nodemon app.js from the backend folder
+
+
+
+
+ Plugins:
+ Chrome plugin AngularJS Batarang :Extends the Developer Tools, adding tools for debugging and profiling AngularJS applications.
