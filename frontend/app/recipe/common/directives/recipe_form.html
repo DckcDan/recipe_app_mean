@@ -1,83 +1,81 @@
- <div class="row form-group" >
-             <div class="col-sm-4">
-                   <label for="exampleInputEmail1">Title</label>
-             </div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Title</label>
+    </div>
 
-              <div class="col-sm-6">
-                             <input type="text" class="form-control"  maxlength="20" placeholder="Name" id="title" name="title" ng-model="recipe.title" ng-required="true">
-                             <div class="alert alert-warning" ng-messages="vm.recipeForm.title.$error" ng-if="vm.showMessages('title')">
-                                <div ng-message="required">
-                                  <small>Title is required!</small>
-                                </div>    
-                             </div> 
+    <div class="col-sm-6">
+        <input type="text" class="form-control" maxlength="20" placeholder="Name" id="title" name="title" ng-model="recipe.title" ng-required="true">
+        <div class="alert alert-warning" ng-messages="vm.recipeForm.title.$error" ng-if="vm.showMessages('title')">
+            <div ng-message="required">
+                <small>Title is required!</small>
+            </div>
+        </div>
 
-             </div>
+    </div>
 
-               </div>
-                  <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Description</label>
-                        </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Description</label>
+    </div>
 
-                        <div class="col-sm-6">
-                             <input type="text" class="form-control"  maxlength="30" placeholder="Enter a brief description"ng-model="recipe.description">
-                        </div>
-               </div>
-    
-                <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Category</label>
-                        </div>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" maxlength="30" placeholder="Enter a brief description" ng-model="recipe.description">
+    </div>
+</div>
 
-                        <div class="col-sm-6">
-                           
-                              <select class="form-control" id="rating"  ng-model="recipe.category">
-                                        <option>Starter</option>
-                                        <option>Main course</option>
-                                        <option>Desert</option>
-                                        <option>Bread</option>
-                                        <option>Other</option>
-                                     </select>
-                       
-                 </div>
-                </div>
-               <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Preparation time</label>
-                        </div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Category</label>
+    </div>
 
-                        <div class="col-sm-6">
-                             <input type="number" class="form-control"  placeholder="Preparation time in minutes" ng-model="recipe.preparationTime">
-                        </div>
-              </div>
-              <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Cooking time</label>
-                        </div>
+    <div class="col-sm-6">
 
-                        <div class="col-sm-6">
-                             <input type="number" class="form-control"  placeholder="Cooking time in minutes" 
-                             ng-model="recipe.cookingTime">
-                        </div>
-                </div> 
+        <select class="form-control" id="rating" ng-model="recipe.category">
+            <option>Starter</option>
+            <option>Main course</option>
+            <option>Desert</option>
+            <option>Bread</option>
+            <option>Other</option>
+        </select>
+
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Preparation time</label>
+    </div>
+
+    <div class="col-sm-6">
+        <input type="number" class="form-control" placeholder="Preparation time in minutes" ng-model="recipe.preparationTime">
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Cooking time</label>
+    </div>
+
+    <div class="col-sm-6">
+        <input type="number" class="form-control" placeholder="Cooking time in minutes" ng-model="recipe.cookingTime">
+    </div>
+</div>
 
 
-                  <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Ingredients</label>
-                        </div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Ingredients</label>
+    </div>
 
-                        <div class="col-sm-6">
-                              <textarea  placeholder="List all the ingredients" rows='4' style="width: 100%" 
-                              ng-model="recipe.ingredients"></textarea>
-                        </div>
-                    </div>
-                      <div class="row form-group">
-                        <div class="col-sm-4">
-                           <label for="exampleInputEmail1">Preparation method</label>
-                        </div>
+    <div class="col-sm-6">
+        <textarea placeholder="List all the ingredients" rows='4' style="width: 100%" ng-model="recipe.ingredients"></textarea>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <label for="exampleInputEmail1">Preparation method</label>
+    </div>
 
-                        <div class="col-sm-6">
-                              <textarea  placeholder="Tell me how to prepare your delicious recipe {{recipe.title}}" rows='4' style="width: 100%" ng-model="recipe.preparation"></textarea>
-                        </div>
-                    </div>
+    <div class="col-sm-6">
+        <textarea placeholder="Tell me how to prepare your delicious recipe {{recipe.title}}" rows='4' style="width: 100%" ng-model="recipe.preparation"></textarea>
+    </div>
+</div>

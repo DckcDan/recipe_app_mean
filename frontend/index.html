@@ -24,28 +24,26 @@
     <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
 
 
-    <!-- Angular application configuration file and controllers-->
-
+    <!-- Angular application configuration files -->
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/app.config.js"></script>
+
+    <!-- Angular controllers-->
     <script type="text/javascript" src="app/home/controllers/homeCtrl.js"></script>
     <script type="text/javascript" src="app/user/register/controllers/registerCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/recipeDetails/controllers/recipeDetailsCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/recipeDetails/controllers/reviewModalCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/manageRecipe/controllers/recipeCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/manageRecipe/controllers/searchCtrl.js"></script>
+
+
+    <!-- Angular  application directives-->
+    <script type="text/javascript" src="app/user/register/directives/validateEquals.js"></script>
+
+
+    <!-- Angular application services-->
+    <script type="text/javascript" src="app/user/common/services/userService.js"></script>
     <script type="text/javascript" src="app/recipe/common/services/recipeService.js"></script>
-
-
-
-    <script>
-        $(document).ready(function () {
-            $(".nav a").on("click", function () {
-                $(".nav").find(".active").removeClass("active");
-                $(this).parent().addClass("active");
-            });
-        });
-    </script>
 
 </head>
 
@@ -64,11 +62,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="addRecipe">Add recipes</a></li>
-                    <li><a ui-sref="search">Search</a></li>
-                    <li><a ui-sref="#">Recipe photo album</a></li>
-                    <li><a ui-sref="register">Sign in</a></li>
+                    <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                    <li ui-sref-active="active"><a ui-sref="addRecipe">Add recipes</a></li>
+                    <li ui-sref-active="active"> <a ui-sref="search">Search</a></li>
+                    <li ui-sref-active="active"><a ui-sref="#">Recipe photo album</a></li>
+                    <li ui-sref-active="active"><a ui-sref="register">Sign in</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggel" data-toggle="dropdown">
                         Social <b class="caret"></b>
