@@ -4,10 +4,10 @@
  */
 var express = require('express');
 var router = express.Router();
-var recipeListCtrl = require('../app_server/controllers/recipeListCtrl')
-var reviewCtrl = require('../app_server/controllers/reviewCtrl')
-var recipeDetailsCtrl = require('../app_server/controllers/recipeDetailsCtrl')
-var userCtrl = require('../app_server/controllers/userCtrl')
+var recipeListCtrl = require('../app_server/controllers/recipeListCtrl');
+var reviewCtrl = require('../app_server/controllers/reviewCtrl');
+var recipeDetailsCtrl = require('../app_server/controllers/recipeDetailsCtrl');
+var userCtrl = require('../app_server/controllers/userCtrl');
 
 
 /**
@@ -41,7 +41,7 @@ router.post('/recipes/:recipeId/reviews', reviewCtrl.createReview);
 /**
  * user dispatchers handlers.
  */
-router.post('/users',userCtrl.createUser);
+router.post('/users', userCtrl.createUser);
 
 
 /**

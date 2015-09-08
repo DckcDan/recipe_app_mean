@@ -6,7 +6,8 @@ angular.module("MyRecipeApp", [
 		'ui.router',
 		'angularFileUpload',
 		'ngMessages',
-	    'ui.bootstrap'
+	    'ui.bootstrap',
+        'ngAnimate'
 	 ]);
 
 
@@ -28,7 +29,7 @@ var ratingStars = function () {
         scope: {
             thisRating: "=value"
         },
-        templateUrl: "/app/recipe/common/directives/rating_stars.html"
+        templateUrl: "/app/common/directives/rating_stars.html"
     };
 
 
@@ -59,7 +60,7 @@ var recipe = function () {
         linker: linker,
         controller: controller,
         restrict: "E",
-        templateUrl: "/app/recipe/common/directives/recipe.html"
+        templateUrl: "/app/common/directives/recipe.html"
 
     };
 
@@ -72,7 +73,7 @@ var recipeForm = function () {
         scope: {
             recipe: "=value"
         },
-        templateUrl: "/app/recipe/common/directives/recipe_form.html"
+        templateUrl: "/app/common/directives/recipe_form.html"
     };
 
 };
@@ -87,7 +88,7 @@ angular.module("MyRecipeApp").directive("recipeForm", recipeForm);
 var review = function () {
     return {
         restrict: "E",
-        templateUrl: "/app/recipe/recipeDetails/directives/review.html"
+        templateUrl: "/app/recipe/directives/review.html"
     };
 
 };

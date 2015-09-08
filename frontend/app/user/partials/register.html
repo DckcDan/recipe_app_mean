@@ -1,0 +1,75 @@
+<form name="vm.registerForm" ng-submit="vm.submit()">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h2><strong>Your registration form</strong></h2>
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="fullname">Your full name </label>
+            </div>
+
+            <div class="col-sm-6">
+                <input type="text" ng-model="fullname" class="form-control" id="fullname" name="fullName" placeholder="Full name" required>
+            </div>
+        </div>
+
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="email">Email address</label>
+            </div>
+
+            <div class="col-sm-6">
+                <input type="email" ng-model="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            </div>
+        </div>
+        <div class="alert alert-warning" ng-show="vm.registerForm.email.$dirty && vm.registerForm.email.$invalid">
+            <strong>Enter a correct email address</strong>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="password">Password</label>
+            </div>
+
+            <div class="col-sm-6">
+                <input type="password" ng-model="password" class="form-control" id="password" name="password" placeholder="password" required>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="password">Confirm password</label>
+            </div>
+
+            <div class="col-sm-6">
+                <input type="password" ng-model="confirmPassword" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" validate-equals="password">
+            </div>
+        </div>
+
+
+        <div class="alert alert-warning" ng-show="vm.registerForm.confirmPassword.$dirty && vm.registerForm.confirmPassword.$invalid">
+            <strong>The passwords need to match.</strong>
+        </div>
+
+        Password strength
+
+
+        <div class="row form-group ">
+            <div class="col-sm-4 pull-right">
+                <button type="" class="btn btn-primary">Cancel</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="!vm.registerForm.$valid">Sign in</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</form>
