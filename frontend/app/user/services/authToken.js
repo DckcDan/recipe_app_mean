@@ -8,6 +8,7 @@
         var cachedToken;
         var userToken = 'userToken';
         var isAuthenticated = false;
+
         var authToken = {
             saveToken: function (token) {
                 cachedToken = token;

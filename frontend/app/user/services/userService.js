@@ -3,7 +3,7 @@
 (function () {
 
 
-    var userProvider = function ($http, $log, $q) {
+    var userProvider = function ($http, $log, $q, API_URL) {
 
         /**
          * it processes the registration of the user in the backend
@@ -11,7 +11,7 @@
         var registerUser = function (user) {
             var deferred = $q.defer();
 
-            $http.post("/api/v1/users/", user)
+            $http.post(API_URL + "/users/", user)
                 .success(deferred.resolve)
                 .error(deferred.reject);
 

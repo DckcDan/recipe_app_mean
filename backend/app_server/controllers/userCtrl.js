@@ -9,7 +9,10 @@ var mongoose = require('mongoose'),
 
 var User = mongoose.model("User");
 
-module.exports.createUser = function (req, res) {
+/**
+ * Register a new user into the persistence store
+ */
+module.exports.registerUser = function (req, res) {
 
     if (!req.body.fullname || !req.body.email || !req.body.password) {
         httpHelper.sendJsonResponse(res, 400, {
@@ -34,7 +37,52 @@ module.exports.createUser = function (req, res) {
 
     });
 
-}
+};
+/**
+ * Login a user based on the given credentials
+ */
+module.exports.loginUser = function (req, res) {
+
+    if (!req.body.email) {
+        httpHelper.sendJsonResponse(res, 400, {
+            "status": "email address param is required "
+        });
+        return;
+    }
+
+
+    //look for a user based on the email
+    var query = User.findOne({
+        "email": req.body.email
+    });
+
+    query.select('_id password salt');
+
+    query.exec(function (error, user) {
+        if (user) {
+            if (user.validatePassword(req.body.password)) {
+                httpHelper.sendJsonResponse(res, 201, {
+                    user: user.toJson(),
+                    token: user.generateJwt()
+                });
+            } else {
+                httpHelper.sendJsonResponse(res, 401, {
+                    "error": "User credentials are invalid"
+                });
+            }
+
+        } else {
+            httpHelper.sendJsonResponse(res, 404, {
+                "error": "User not found, wrong email/password"
+            });
+
+        };
+
+
+    });
+
+};
+
 
 
 var buildUser = function (req) {

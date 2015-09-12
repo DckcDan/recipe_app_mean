@@ -2,6 +2,8 @@
 /**
  * Module dependencies.
  */
+//load the enviroment file called .env
+require('dotenv').load();
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');

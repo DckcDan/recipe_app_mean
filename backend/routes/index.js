@@ -29,20 +29,17 @@ router.put('/recipes/:recipeId', recipeDetailsCtrl.updateRecipe);
 /**
  * review dispatchers handlers.
  */
-
 router.get('/recipes/:recipeId/reviews', reviewCtrl.listReviews);
 router.get('/recipes/:recipeId/reviews/:reviewId', reviewCtrl.lookupReviewById);
 router.post('/recipes/:recipeId/reviews', reviewCtrl.createReview);
-//router.put('/recipes/:recipeId/reviews/:reviewId', recipeDetailsCtrl.updateReview);
-//router.delte('/recipes/:recipeId/reviews/:reviewId', recipeDetailsCtrl.updateReview);
 
 
 
 /**
  * user dispatchers handlers.
  */
-router.post('/users', userCtrl.createUser);
-
+router.post('/users', userCtrl.registerUser);
+router.post('/users/login', userCtrl.loginUser);
 
 /**
  * exports routes.

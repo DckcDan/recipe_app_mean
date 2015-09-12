@@ -1,12 +1,19 @@
 (function () {
 
 
-    var headerController = function ($scope, authTokenProvider) {
+    var headerController = function ($scope, authTokenProvider, $window) {
 
-
+        var vm = this;
         $scope.isAuthenticated = function () {
             return authTokenProvider.isAuthenticated();
         };
+
+
+        if (authTokenProvider.isAuthenticated()) {
+            var storage = $window.localStorage;
+            vm.fullName = storage.getItem("user").fullName;
+        }
+
 
     };
 

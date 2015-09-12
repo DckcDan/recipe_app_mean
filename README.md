@@ -2,17 +2,21 @@
 Application to manage food recipes using the MEAN stack
 
 Frameworks used:
-Mongodb, Nodejs, Expressjs, Angularjs
-,Bootstrap UI framework
 
-App organize by feature then by type
-Express.js MVC architecture:
+    Mongodb, Nodejs, Expressjs, Angularjs
+    ,Bootstrap UI framework
+
+    Nodemon for the node.js application
+    Grunt for the angularjs web application.
+
+    JWT - Json web token
+    Passport - Authetication midleware for node.js
 
 Separation of concerns
 
 	Application - Routers - Controllers
 	app.js -> index.js -> main.js
-
+    App organize by feature then by type
 
 We are using the same node server to run the backend and frontend. Nodemon service to run nodejs applications.
 
@@ -33,3 +37,7 @@ Run application:
 
  Plugins:
  Chrome plugin AngularJS Batarang :Extends the Developer Tools, adding tools for debugging and profiling AngularJS applications.
+ 
+ 
+ Backend -> nodemon
+ Frontend -> grunt

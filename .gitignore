@@ -33,3 +33,9 @@ Thumbs.db
 *.jar
 *.rar
 *.tar
+
+#Dependencies
+note_modules
+
+# Enviroment variables
+.env

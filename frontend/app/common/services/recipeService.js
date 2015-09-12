@@ -1,6 +1,6 @@
 (function () {
 
-    function recipeProvider($http, $log, $q) {
+    function recipeProvider($http, $log, $q, API_URL) {
 
 
         /**
@@ -8,8 +8,7 @@
          */
         var recipeList = function () {
             var deferred = $q.defer();
-            //var url= baseUrl+"/api/v1/recipes/"
-            $http.get("/api/v1/recipes/")
+            $http.get(API_URL + "/recipes")
                 .success(function (data) {
                     deferred.resolve(data);
                 })
@@ -27,7 +26,7 @@
         var lookUpRecipeById = function (recipeId) {
             var deferred = $q.defer();
 
-            $http.get("/api/v1/recipes/" + recipeId)
+            $http.get(API_URL + "/recipes/" + recipeId)
                 .success(deferred.resolve)
                 .error(deferred.reject);
 
@@ -42,7 +41,7 @@
         var addNewRecipe = function (newRecipe) {
             var deferred = $q.defer();
 
-            $http.post("/api/v1/recipes", newRecipe)
+            $http.post(API_URL + "/recipes", newRecipe)
                 .success(deferred.resolve)
                 .error(deferred.reject);
 
@@ -56,7 +55,7 @@
         var updateRecipe = function (recipeId, updatedRecipe) {
             var deferred = $q.defer();
 
-            $http.put("/api/v1/recipes/" + recipeId, updatedRecipe)
+            $http.put(API_URL + "/recipes/" + recipeId, updatedRecipe)
                 .success(deferred.resolve)
                 .error(deferred.reject);
 
@@ -70,7 +69,7 @@
         var deleteRecipe = function (recipeId) {
                 var deferred = $q.defer();
 
-                $http.delete("/api/v1/recipes/" + recipeId)
+                $http.delete(API_URL + "/recipes/" + recipeId)
                     .success(deferred.resolve)
                     .error(deferred.reject);
 
@@ -83,7 +82,7 @@
         var addReview = function (recipeId, review) {
             var deferred = $q.defer();
 
-            $http.post("/api/v1/recipes/" + recipeId + "/reviews", review)
+            $http.post(API_URL + "/recipes/" + recipeId + "/reviews", review)
                 .success(deferred.resolve)
                 .error(deferred.reject);
 

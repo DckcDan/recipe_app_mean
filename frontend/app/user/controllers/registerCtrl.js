@@ -2,9 +2,9 @@
 (function () {
 
 
-    var registerController = function ($scope, userProvider, authTokenProvider, $state) {
+    var registerController = function ($scope, userProvider, authTokenProvider, $state, $window) {
         var vm = this;
-
+        vm.register_form_error = "";
         vm.submit = function () {
             //TODO try not to use $scope
             var user = {
@@ -16,11 +16,13 @@
                 .then(
                     function (data, status, headers, conf) {
                         authTokenProvider.saveToken(data.token);
-                        vm.userFullName = data.user.fullname;
+                        var storage = $window.localStorage;
+                        //store user un the localstorage
+                        storage.setItem("user", data.user);
                         $state.go("home");
                     },
                     function (error) {
-
+                        vm.register_form_error = "Please correct error ";
                     }
                 );
         };

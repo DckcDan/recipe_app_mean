@@ -15,15 +15,13 @@
     <script type="text/javascript" src="js/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/angular-animate.min.js"></script>
     <script type="text/javascript" src="js/angular-messages.min.js"></script>
+    <script type="text/javascript" src="js/angular-file-upload.js"></script>
+    <script type="text/javascript" src="js/angular-cookies.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="js/angular-file-upload.js"></script>
-    <script type="text/javascript" src="js/angular-cookies.js"></script>
-
     <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-0.13.3.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
-
 
     <!-- Angular application configuration files -->
     <script type="text/javascript" src="app/app.js"></script>
@@ -39,15 +37,14 @@
     <script type="text/javascript" src="app/recipe/controllers/recipeCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/controllers/searchCtrl.js"></script>
 
-
     <!-- Angular  application directives-->
     <script type="text/javascript" src="app/user/directives/validateEquals.js"></script>
-
 
     <!-- Angular application services-->
     <script type="text/javascript" src="app/user/services/userService.js"></script>
     <script type="text/javascript" src="app/user/services/authToken.js"></script>
     <script type="text/javascript" src="app/common/services/recipeService.js"></script>
+    <script type="text/javascript" src="app/common/services/authInterceptor.js"></script>
 
 </head>
 
@@ -58,7 +55,7 @@
     </header>
 
 
-    <div id="container" class="ui-view-container">
+    <div id="container">
         <div ui-view></div>
 
     </div>
@@ -69,22 +66,23 @@
             <div class="container">
                 <div class="row">
                     <footer>
-                        <div class="pull-left ft_space">
-                            <address>
+                        <footer>
+                            <div class="pull-left ft_space">
+                                <address>
                                 <h3>My Recipe Book</h3>
                                    Daniel  CopyRight @2015
                               </address>
-                        </div>
-                        <div class="pull-right ft_space">
-                            log image
-                        </div>
+                            </div>
+                            <div class="pull-right ft_space">
+                                log image
+                            </div>
 
-                    </footer>
+                        </footer>
                 </div>
             </div>
 
         </div>
-    </footer>
+        </footer>
 
 
 </body>
