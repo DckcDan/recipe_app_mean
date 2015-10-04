@@ -10,8 +10,8 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-require('./app_server/models/db')
-require('./app_server/config/passport')
+require('./app_server/models/db');
+require('./app_server/config/passport');
 var routesAPI = require('./routes/index');
 var _port = 8082;
 
@@ -27,6 +27,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
+
 //passport init
 app.use(passport.initialize());
 

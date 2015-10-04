@@ -8,10 +8,11 @@ var User = mongoose.model('User');
 
 //setting up the passport strategey and overwritte the username field
 var stragegy = new LocalStrategy({
-        userNameField: 'email'
+        //this is the field from the req.body. Passport expect by default a field called username.
+        //the below overwrittes the expect it field
+        usernameField: 'email'
     },
     function (username, password, done) {
-
         User.findOne({
             email: username
         }, function (err, user) {
@@ -20,15 +21,18 @@ var stragegy = new LocalStrategy({
             }
             if (!user) {
                 return done(null, false, {
-                    message: 'Incorrect email address.'
+                    message: 'Incorrect details.'
                 });
             }
-            if (!user.validatePassword(password)) {
+            if (user.validatePassword(password)) {
+                //user credentials are correc.
+                return done(null, user);
+            } else {
                 return done(null, false, {
-                    message: "Incorrect password."
+                    message: "Incorrect details."
                 });
             }
-            return done(null, user);
+
 
         });
 
