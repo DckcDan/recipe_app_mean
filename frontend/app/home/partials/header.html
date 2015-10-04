@@ -15,7 +15,7 @@
             <li ui-sref-active="active"> <a ui-sref="search">Search</a></li>
             <li ui-sref-active="active"><a ui-sref="#">Recipe photo album</a></li>
             <div class="pull-right">
-                <li ui-sref-active="active" ng-hide="isAuthenticated()"><a ui-sref="register">Sign in</a> </li>
+                <li ui-sref-active="active" ng-hide="isAuthenticated()"><a ui-sref="login">Log in</a> </li>
                 <li ng-show="isAuthenticated()"> Welcome {{vm.userFullName}}</li>
 
                 <li ng-show="isAuthenticated()"><a ui-sref="logout">Log out</a></li>

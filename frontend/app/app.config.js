@@ -51,6 +51,12 @@ angular.module("MyRecipeApp").config(function ($stateProvider, $urlRouterProvide
                 controller: "logoutController",
                 controllerAs: "vm",
             })
+            .state('login', {
+                url: "/login",
+                controller: "loginController",
+                controllerAs: "vm",
+                templateUrl: "app/user/partials/login.html"
+            })
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.when('/', '/home');

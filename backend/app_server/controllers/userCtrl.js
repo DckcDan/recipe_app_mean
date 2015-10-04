@@ -1,5 +1,5 @@
 'use strict';
-/* USer controller */
+/* User controller */
 
 /**
  * Module dependencies.
@@ -8,6 +8,8 @@ var mongoose = require('mongoose'),
     httpHelper = require('./httpHelper');
 
 var User = mongoose.model("User");
+
+
 
 /**
  * Register a new user into the persistence store
@@ -41,7 +43,7 @@ module.exports.registerUser = function (req, res) {
 /**
  * Login a user based on the given credentials
  */
-module.exports.loginUser = function (req, res) {
+module.exports.authentificateUser = function (req, res) {
 
     if (!req.body.email) {
         httpHelper.sendJsonResponse(res, 400, {
@@ -56,14 +58,25 @@ module.exports.loginUser = function (req, res) {
         "email": req.body.email
     });
 
-    query.select('_id password salt');
+    query.select('_id fullname password salt');
 
     query.exec(function (error, user) {
         if (user) {
             if (user.validatePassword(req.body.password)) {
-                httpHelper.sendJsonResponse(res, 201, {
-                    user: user.toJson(),
-                    token: user.generateJwt()
+
+                user.lastLogin = Date.now();
+                user.save(function (err, user) {
+                    if (user) {
+                        httpHelper.sendJsonResponse(res, 201, {
+                            user: user.toJson(),
+                            token: user.generateJwt()
+                        });
+                    } else {
+                        httpHelper.sendJsonResponse(res, 500, {
+                            "error": "Unexpected error " + err.status
+                        });
+                    }
+
                 });
             } else {
                 httpHelper.sendJsonResponse(res, 401, {
@@ -90,8 +103,10 @@ var buildUser = function (req) {
     user.email = req.body.email;
     user.fullname = req.body.fullname;
     user.modifiedOn = Date.now();
+    user.lastLogin = Date.now();
     //it calls a user schema method to encript the password.
     user.setPassword(req.body.password);
+
     return user;
 
 };

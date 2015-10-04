@@ -2,7 +2,7 @@
 (function () {
 
 
-    var registerController = function ($scope, userProvider, authTokenProvider, $state, $window) {
+    var registerController = function ($scope, userProvider, authTokenProvider, $state, $window,toaster) {
         var vm = this;
         vm.register_form_error = "";
         vm.submit = function () {
@@ -20,6 +20,7 @@
                         //store user un the localstorage
                         storage.setItem("user", data.user);
                         $state.go("home");
+                        toaster.pop('success', "Register", "You have successfully register");
                     },
                     function (error) {
                         vm.register_form_error = "Please correct error ";

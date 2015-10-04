@@ -39,7 +39,7 @@ router.post('/recipes/:recipeId/reviews', reviewCtrl.createReview);
  * user dispatchers handlers.
  */
 router.post('/users', userCtrl.registerUser);
-router.post('/users/login', userCtrl.loginUser);
+router.post('/users/login', userCtrl.authentificateUser);
 
 /**
  * exports routes.

@@ -11,6 +11,8 @@ Frameworks used:
 
     JWT - Json web token
     Passport - Authetication midleware for node.js
+        npm install --save passport
+        npm install --save passport-local
 
 Separation of concerns
 

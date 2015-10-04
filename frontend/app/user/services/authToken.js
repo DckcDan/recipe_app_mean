@@ -35,5 +35,5 @@
         return authToken;
     };
 
-    angular.module("MyRecipeApp").factory("authTokenProvider", authToken);
+    angular.module("customServices").factory("authTokenProvider", authToken);
 })();

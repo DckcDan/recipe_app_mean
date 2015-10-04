@@ -5,13 +5,16 @@
 //load the enviroment file called .env
 require('dotenv').load();
 var express = require('express');
+var passport = require('passport');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('./app_server/models/db')
+require('./app_server/config/passport')
 var routesAPI = require('./routes/index');
 var _port = 8082;
+
 
 //creating an express app
 var app = express();
@@ -24,6 +27,10 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
+//passport init
+app.use(passport.initialize());
+
+
 //it points to our angular web application
 app.use(express.static(__dirname + "/../frontend"));
 
@@ -36,6 +43,8 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+
 
 module.exports = app;
 

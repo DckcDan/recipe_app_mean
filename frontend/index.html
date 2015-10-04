@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toaster.css">
     <link rel="stylesheet" href="css/app.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <!-- Using the angular ui-router as opposed of the angular router as it provides better features.-->
@@ -19,7 +20,7 @@
     <script type="text/javascript" src="js/angular-cookies.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="js/toaster.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-0.13.3.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
 
@@ -30,7 +31,8 @@
     <!-- Angular controllers-->
     <script type="text/javascript" src="app/home/controllers/homeCtrl.js"></script>
     <script type="text/javascript" src="app/home/controllers/headerCtrl.js"></script>
-    <script type="text/javascript" src="app/home/controllers/logoutController.js"></script>
+    <script type="text/javascript" src="app/user/controllers/loginCtrl.js"></script>
+    <script type="text/javascript" src="app/user/controllers/logoutController.js"></script>
     <script type="text/javascript" src="app/user/controllers/registerCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/controllers/recipeDetailsCtrl.js"></script>
     <script type="text/javascript" src="app/recipe/controllers/reviewModalCtrl.js"></script>
@@ -52,12 +54,13 @@
 
     <header>
         <div ng-include="'app/home/partials/header.html'"></div>
+
     </header>
 
 
     <div id="container">
         <div ui-view></div>
-
+        <toaster-container/>
     </div>
 
 
@@ -67,6 +70,7 @@
                 <div class="row">
                     <footer>
                         <footer>
+
                             <div class="pull-left ft_space">
                                 <address>
                                 <h3>My Recipe Book</h3>

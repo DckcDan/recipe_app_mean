@@ -7,10 +7,12 @@ angular.module("MyRecipeApp", [
 		'angularFileUpload',
 		'ngMessages',
 	    'ui.bootstrap',
-        'ngAnimate'
+        'ngAnimate',
+        'customServices',
+        'toaster'
 	 ]);
-
-
+//TODO where can I define it?
+angular.module("customServices", []);
 
 
 /**
