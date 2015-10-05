@@ -65,7 +65,7 @@ userSchema.methods.generateJwt = function () {
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
     return jwt.sign({
-        _id: this._id,
+        userId: this._id,
         email: this.email,
         fullname: this.fullname,
         exp: parseInt(expiry.getTime() / 1000)

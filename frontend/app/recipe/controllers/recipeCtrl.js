@@ -64,8 +64,6 @@
                 vm.add_recipe_error = "Please enter a title";
                 return;
             }
-            //TODO remove this once the login service is done
-            newRecipe.userId = "55c77a959e73518f1ce6570b";
 
             recipeProvider.addNewRecipe(newRecipe)
                 .then(
@@ -75,8 +73,8 @@
                         // now, redirect to the recipe details
                         $location.path("/recipes/" + recipe._id);
                     },
-                    function (recipe, status, headers, conf) {
-                        console.log("Error adding a new recipe name " + recipe.title + ".Error " + status)
+                    function (err) {
+                        console.log("Error adding a new recipe " + newRecipe.title + ".Error " + err.message)
                         vm.recipe_form_error = "Uppss an error has happened, please try again later!!!";
                     });
 

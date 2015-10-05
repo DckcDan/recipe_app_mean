@@ -45,6 +45,15 @@ app.use(function (req, res, next) {
     next();
 });
 
+//Catch unathorized error by the Middleware
+app.use(function (err, req, res, next) {
+    if (err.name == 'UnauthorizedError') {
+        res.status(401);
+        res.json({
+            "message": err.name + ": " + err.message
+        });
+    }
+});
 
 
 module.exports = app;

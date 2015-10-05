@@ -73,11 +73,8 @@ module.exports.lookupRecipeById = function (req, res) {
  * Creates a new recipe and insert it in to the DB
  */
 module.exports.createRecipe = function (req, res) {
-
-    if (!httpHelper.checkIfTokenValid(req, rest)) {
-        return;
-    }
-
+    console.log("Creating a new recipe called " + req.body.title + "by user with id " + req.payload.userId);
+    //the req.payload contains now the information extracted by the jwt middleware from the token
     RecipeDAO.create(buildRecipe(req), function (err, recipe) {
         if (err) {
             httpHelper.sendJsonResponse(res, 400, {
@@ -103,7 +100,8 @@ var buildRecipe = function (req) {
         category: req.body.category,
         ingredients: req.body.ingredients,
         preparation: req.body.preparation,
-        createdBy: req.body.userId
+        //userId is extracted from the JWT token by the middleware
+        createdBy: req.payload.userId
     };
 
     return recipe;

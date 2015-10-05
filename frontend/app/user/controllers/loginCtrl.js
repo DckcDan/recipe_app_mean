@@ -13,11 +13,11 @@
             }
         };
 
-        function onSuccess(data) {
-            authTokenProvider.saveToken(data.token);
+        function onSuccess(info) {
+            authTokenProvider.saveToken(info.data.token);
             var storage = $window.localStorage;
             //store user un the localstorage
-            storage.setItem("user", data.user);
+            storage.setItem("user", info.data.user);
             $state.go("home");
             toaster.pop('success', "Logged in", "You have successfully logged in");
         }

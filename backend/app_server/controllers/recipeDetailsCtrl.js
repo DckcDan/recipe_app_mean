@@ -1,3 +1,4 @@
+
 'use strict';
 /* Recipe Detail controller */
 

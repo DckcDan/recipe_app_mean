@@ -12,6 +12,32 @@ var mongoose = require('mongoose'),
 
 
 /**
+ * Check whether the token is valid and exist. If not it will create  a json response with the
+ * error.
+ NOTE: the code below is being replaced by the use of the passport module.
+ */
+module.exports.checkIfTokenValid = function (req, res) {
+
+    if (!req.headers.authorization) {
+        httpHelper.sendJsonResponse(res, 401, {
+            "message": "Authorization is required"
+        });
+        return;
+    };
+
+
+    var token = req.headers.authorization.split(' ')[1];
+    var decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    if (!decoded) {
+        httpHelper.sendJsonResponse(res, 401, {
+            "message": "Authorization has failed, wrong token"
+        });
+        return;
+    };
+
+};
+/**
  * Register a new user into the persistence store
  */
 module.exports.registerUser = function (req, res) {

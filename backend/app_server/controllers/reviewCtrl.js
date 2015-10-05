@@ -147,7 +147,6 @@ module.exports.createReview = function (req, res) {
 var addReviewToRecipe = function (req, res, recipe) {
 
     var review = buildReview(req);
-    console.log(review);
     recipe.reviews.push(review);
     recipe.rating = calculateAverageRanting(recipe);
     //now the parent document needs to be saved with the new review
@@ -177,7 +176,8 @@ var addReviewToRecipe = function (req, res, recipe) {
  */
 var buildReview = function (req) {
     var review = {
-        createdBy: req.body.userId,
+        //the user id is obtained from the token payload, this is done by the jwt middleware
+        createdBy: req.payload.userId,
         comments: req.body.comments,
         rating: req.body.rating,
         title: req.body.title

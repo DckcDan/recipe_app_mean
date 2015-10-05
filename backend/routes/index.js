@@ -4,6 +4,13 @@
  */
 var express = require('express');
 var router = express.Router();
+var jwt = require('express-jwt');
+/*Middleware configuration: specify the secret and the name of the property we want to add to the req object
+to hold the payload*/
+var auth = jwt({
+    secret: process.env.JWT_SECRET,
+    userProperty: 'payload'
+});
 var recipeListCtrl = require('../app_server/controllers/recipeListCtrl');
 var reviewCtrl = require('../app_server/controllers/reviewCtrl');
 var recipeDetailsCtrl = require('../app_server/controllers/recipeDetailsCtrl');
@@ -21,17 +28,17 @@ var authenticationCtrl = require('../app_server/controllers/authenticationCtrl')
  */
 router.get('/recipes', recipeListCtrl.listRecipes);
 router.get('/recipes/:recipeId', recipeListCtrl.lookupRecipeById);
-router.post('/recipes', recipeListCtrl.createRecipe);
+router.post('/recipes', auth, recipeListCtrl.createRecipe);
 
-router.delete('/recipes/:recipeId', recipeListCtrl.deleteRecipe);
-router.put('/recipes/:recipeId', recipeDetailsCtrl.updateRecipe);
+router.delete('/recipes/:recipeId', auth, recipeListCtrl.deleteRecipe);
+router.put('/recipes/:recipeId', auth, recipeDetailsCtrl.updateRecipe);
 
 /**
  * Review dispatchers handlers.
  */
 router.get('/recipes/:recipeId/reviews', reviewCtrl.listReviews);
 router.get('/recipes/:recipeId/reviews/:reviewId', reviewCtrl.lookupReviewById);
-router.post('/recipes/:recipeId/reviews', reviewCtrl.createReview);
+router.post('/recipes/:recipeId/reviews', auth, reviewCtrl.createReview);
 
 
 /**
